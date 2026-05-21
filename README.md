@@ -26,3 +26,16 @@ Dzięki wykorzystaniu Docker Compose nie trzeba instalować Pythona ani żadnych
 3. Uruchom cały system za pomocą jednej komendy:
    ```bash
    docker compose up --build
+   Po zbudowaniu obrazów otwórz przeglądarkę i wejdź pod adres:
+http://localhost:8501
+
+## 📝 Symulacja i testowanie na żywo
+Konfiguracja kontenerów korzysta z wolumenów (volumes), co oznacza, że folder na komputerze jest zsynchronizowany z wnętrzem kontenera.
+
+Aby przetestować działanie systemu na żywo:
+
+1. Otwórz plik server_logs.txt i dopisz na końcu nową linijkę udającą atak (np. Failed password for root from 8.8.8.8 port 22 ssh2).
+
+2. Zapisz plik. Parser natychmiast wychwyci zmianę (wyśle powiadomienie).
+
+3. Odśwież stronę ze Streamlitem w przeglądarce – nowe IP automatycznie pojawi się na wykresach.
