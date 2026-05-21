@@ -1,0 +1,18 @@
+services:
+  # Pierwszy kontener: Nasz cichy pracownik w tle
+  parser:
+    build: .
+    command: python parser.py
+    volumes:
+      - .:/app # Udostępniamy pliki z komputera do kontenera, żeby baza danych się aktualizowała
+
+  # Drugi kontener: Nasz wizualny panel
+  dashboard:
+    build: .
+    command: streamlit run dashboard.py
+    ports:
+      - "8501:8501" # Przekierowujemy port z kontenera na Twój komputer
+    volumes:
+      - .:/app
+    depends_on:
+      - parser # Uruchom dashboard dopiero, gdy parser wystartuje

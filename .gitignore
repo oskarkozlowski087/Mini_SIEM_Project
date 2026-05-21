@@ -1,0 +1,5 @@
+*.db
+SQL_SIEM.db
+server_logs.txt
+__pycache__/
+*.pyc
